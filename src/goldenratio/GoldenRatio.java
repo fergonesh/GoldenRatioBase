@@ -24,9 +24,7 @@ public class GoldenRatio {
         this.num = new ArrayList<>(a);
     }
     
-    public GoldenRatio()
-    {
-       //System.out.println(PHI); 
+    public GoldenRatio(){
     }
 
     public void setNum(ArrayList<String> num) {
@@ -86,11 +84,11 @@ public class GoldenRatio {
         } else {
             System.out.println("Error in getGoldenNumberFromDecimal");
         }
-//         getMinimalForm(reslist);
+         getMinimalForm(reslist);
          getoutZero(reslist);
-//         if (!sign){
-//             reslist.add(0,"-");
-//         }
+         if (!sign){
+             reslist.add(0,"-");
+         }
         return reslist;
     }
     
@@ -104,6 +102,7 @@ public class GoldenRatio {
 }
     public double getDecimalNumFromGolden(ArrayList<String> gold)
     {
+
         double res=0;
         int plusOrminus = 1;
         if(gold.contains("-"))
@@ -138,6 +137,9 @@ public class GoldenRatio {
     
      public ArrayList<String> getMinimalForm(ArrayList<String> num)
     {
+        if (num.size()<4){
+            return num;
+        }
         int pointPos=0;
         if (num.contains("."))
         {

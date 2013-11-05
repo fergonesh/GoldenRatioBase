@@ -42,7 +42,7 @@ public class Main {
           System.out.println("Addition by gold: "+getAdittion(a, b));
           System.out.println("Addition by dec: "+ new GoldenRatio().getGoldenNumFromDecimal(9));
           System.out.println("Substraction by gold: "+getSubstruction(a, b));
-          System.out.println("Substraction by dec : "+new GoldenRatio().getGoldenNumFromDecimal(1) );
+          System.out.println("Substraction by dec : "+new GoldenRatio().getGoldenNumFromDecimal(-1) );
           StringBuilder spq = new StringBuilder("10100.0101");
           System.out.println("From gold to decimal: "+new GoldenRatio().getDecimalNumFromGolden(getArrayList(spq)));
           //1101.1101=10010.0101

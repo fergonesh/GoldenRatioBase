@@ -250,10 +250,10 @@ public class GoldenRatioOperation {
         } else {
             System.out.println("Error in Substruction");
         }
-       // return (new GoldenRatio().getMinimalForm(big)) ;
+       //return (new GoldenRatio().getMinimalForm(big)) ;
      
        
-        return big;
+        return (new GoldenRatio().getoutZero(big));
     }
      
 /*     static ArrayList<String> multiplyadd(StringBuilder s1, StringBuilder s2) {
