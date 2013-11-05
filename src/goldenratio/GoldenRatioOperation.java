@@ -343,25 +343,44 @@ public class GoldenRatioOperation {
      }
   
      //TODO Dont work
-     public ArrayList<String> getDivision()
+     public  ArrayList<ArrayList<String>> getDivision()
      {
          normalizeGoldenNumber();
             ArrayList<String> fir = new ArrayList<>(this.first.getNum());
             ArrayList<String> sec = new ArrayList<>(this.second.getNum());
            
            int i=0;
-           while(getComparison(fir, sec)){
-               i++;
-               GoldenRatioOperation gl = new GoldenRatioOperation(fir, sec);
-               //System.out.println();
-               fir = new ArrayList<>(gl.getSubstruction());
-               gl = new GoldenRatioOperation(fir, sec);
-               gl.normalizeGoldenNumber();
-               fir = new ArrayList<>(gl.getFirst().getNum());
-               sec = new ArrayList<>(gl.getSecond().getNum());
+            ArrayList<ArrayList<String>> res = new ArrayList<>();
+           if (getComparison(fir, sec)){
+                    while(getComparison(fir, sec)){
+                        i++;
+                        GoldenRatioOperation gl = new GoldenRatioOperation(fir, sec);
+                        //System.out.println();
+                        fir = new ArrayList<>(gl.getSubstruction());
+                        gl = new GoldenRatioOperation(fir, sec);
+                        gl.normalizeGoldenNumber();
+                        fir = new ArrayList<>(gl.getFirst().getNum());
+                        sec = new ArrayList<>(gl.getSecond().getNum());
+                    }
+             ArrayList<String> quotient = new ArrayList<>(new GoldenRatio().getGoldenNumFromDecimal(i));
+             ArrayList<String> remainder = new ArrayList<>(fir);
+             new GoldenRatio().getoutZero(quotient);
+             new GoldenRatio().getoutZero(remainder);
+             res.add(quotient);
+             res.add(remainder);
+           }
+           else{
+              
+             ArrayList<String> quotient = new ArrayList<>();
+             quotient.add("0"); quotient.add(".");
+             quotient.add("0"); quotient.add("0");
+             ArrayList<String> remainder = new ArrayList<>(fir);
+             new GoldenRatio().getoutZero(remainder);
+             res.add(quotient);
+             res.add(remainder);
            }
            
-           return new GoldenRatio().getGoldenNumFromDecimal(i);
+           return res;
      }
      
      private static ArrayList<String> getListFromStringBuilder(StringBuilder str)

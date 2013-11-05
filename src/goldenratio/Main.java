@@ -9,16 +9,7 @@ import java.util.Arrays;
  */
 public class Main {
     
-     public static void main(String[] args) {
-     
-//         ArrayList<String> list = new ArrayList<>();
-//         
-//         list.add("0");
-//        // list.add(".");
-//         list.add("1");
-//         list.add("1");
-//         int a = list.indexOf(".");
-//         //100100.001001
+     public static void main(String[] args) {    
 //          String[] fpoint = {"1","0","1","0","0",".","0","1","0","1"};//10
 //         String[] spoint = {"1","0","0","1","0","0",".","0","0","1","0","0","1"}; //14
 //         String[] zp = {"1",".","1","1"};
@@ -28,16 +19,17 @@ public class Main {
           StringBuilder fp = new StringBuilder("1.00");
           StringBuilder sp = new StringBuilder("10100.0101");
           GoldenRatioOperation Test = new GoldenRatioOperation( getArrayList(fp),getArrayList(sp));
-          System.out.println(Test.getSubstruction());
-          System.out.println(Test.getDivision());
+         // System.out.println(Test.getSubstruction());
+        //  System.out.println(Test.getDivision());
           GoldenRatio testgr = new GoldenRatio();
-          System.out.println(testgr.getGoldenNumFromDecimal(22.2));
+          //System.out.println(testgr.getGoldenNumFromDecimal(22));
          // System.out.println(Test.getSubstruction());
           double d =10d;
           
           //System.out.println(testgr.getGoldenNumFromDecimal(1000000));
         
           int a =4;int b=5;
+            //printDivision(6,6);
 //          System.out.println("a ="+a+" b="+b);
 //          System.out.println("a="+new GoldenRatio().getGoldenNumFromDecimal(a));
 //          System.out.println("b="+new GoldenRatio().getGoldenNumFromDecimal(b));
@@ -82,5 +74,13 @@ public class Main {
         private static ArrayList<String> getMultiplication(int f,int s){
             return new GoldenRatioOperation(new GoldenRatio().getGoldenNumFromDecimal(f),new GoldenRatio().getGoldenNumFromDecimal(s)).getMultiplication();
         }
+        
+       private static void printDivision(int f, int s){
+           ArrayList<String> fir = new ArrayList<>(new GoldenRatio().getGoldenNumFromDecimal(f));
+           ArrayList<String> sec = new ArrayList<>(new GoldenRatio().getGoldenNumFromDecimal(s));
+           ArrayList<ArrayList<String>> res= new ArrayList<>(new GoldenRatioOperation(fir,sec).getDivision());
+           System.out.println("quotient : "+res.get(0).toString());
+           System.out.println("reminder : "+res.get(1).toString());
+       }
     
 }
