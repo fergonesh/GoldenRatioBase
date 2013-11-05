@@ -40,10 +40,13 @@ public class Main {
           System.out.println("a="+new GoldenRatio().getGoldenNumFromDecimal(a));
           System.out.println("b="+new GoldenRatio().getGoldenNumFromDecimal(b));
           System.out.println("Addition by gold: "+getAdittion(a, b));
-          System.out.println("Addition by dec: "+ new GoldenRatio().getGoldenNumFromDecimal(9));
+          System.out.println("Addition by dec: "+ new GoldenRatio().getGoldenNumFromDecimal(a+b));
           System.out.println("Substraction by gold: "+getSubstruction(a, b));
-          System.out.println("Substraction by dec : "+new GoldenRatio().getGoldenNumFromDecimal(-1) );
-          StringBuilder spq = new StringBuilder("10100.0101");
+          System.out.println("Substraction by dec : "+new GoldenRatio().getGoldenNumFromDecimal(a-b) );
+          System.out.println("Multiplication by gold: "+getMultiplication(a, b) );
+          System.out.println("Multiplication by dec : "+new GoldenRatio().getGoldenNumFromDecimal(20));
+          //System.out.println("get dec of multires : "+new GoldenRatio().getDecimalNumFromGolden(null));
+          StringBuilder spq = new StringBuilder("1000010.010001");
           System.out.println("From gold to decimal: "+new GoldenRatio().getDecimalNumFromGolden(getArrayList(spq)));
           //1101.1101=10010.0101
           //1101.1101 = 10001.1101=10010.0101
@@ -73,6 +76,9 @@ public class Main {
         
         private static ArrayList<String> getSubstruction(int f,int s){
             return new GoldenRatioOperation(new GoldenRatio().getGoldenNumFromDecimal(f),new GoldenRatio().getGoldenNumFromDecimal(s)).getSubstruction();
+        }
+        private static ArrayList<String> getMultiplication(int f,int s){
+            return new GoldenRatioOperation(new GoldenRatio().getGoldenNumFromDecimal(f),new GoldenRatio().getGoldenNumFromDecimal(s)).getMultiplication();
         }
     
 }

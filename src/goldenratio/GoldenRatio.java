@@ -128,7 +128,7 @@ public class GoldenRatio {
             } 
         }
         
-        return (res*plusOrminus);
+        return round((res*plusOrminus),5);
     }
 
     public ArrayList<String> getNum() {
