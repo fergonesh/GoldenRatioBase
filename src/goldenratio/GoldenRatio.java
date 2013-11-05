@@ -32,7 +32,7 @@ public class GoldenRatio {
     }
     
     
- //TODO   
+
     public ArrayList<String> getGoldenNumFromDecimal(double dec)
     {
        //check sign

@@ -93,10 +93,6 @@ public class GoldenRatioOperation {
             secondNum.add(".");
             secondNum.addAll(rightb);
             this.second.setNum(secondNum);
-//            this.firstNum.addAll(righta);
-//            this.secondNum = new ArrayList<>(leftb);
-//            this.secondNum.addAll(rightb);
-//            this.pointPosition = a.indexOf(".")>=b.indexOf(".") ? a.indexOf(".") : b.indexOf(".");
         }
     }
     private ArrayList addZeroInPosition(ArrayList list,int zeroQuantity,boolean begin)
@@ -117,15 +113,15 @@ public class GoldenRatioOperation {
         }
         return list;
     }
-    
+        //return true if >=
         public boolean getComparison(ArrayList<String> a,ArrayList<String> b)
     {
-        boolean res = false;
+        boolean res = true;
         if (a.size()!=b.size())
             System.out.println("Cannot Comparison 2 number with diff size");
         else
         {
-            
+            int point =a.indexOf(".");
             a.remove(".");
             b.remove(".");
             if(a.size()>b.size())
@@ -141,6 +137,11 @@ public class GoldenRatioOperation {
                         break;
                     }
             }
+            if(point>0){
+                 a.add(point,".");
+                 b.add(point,".");
+            }
+           
         }
         return res;
         
@@ -194,7 +195,7 @@ public class GoldenRatioOperation {
         return big; 
     }
     
-     public ArrayList getSubstruction()
+     public ArrayList<String> getSubstruction()
     {
         normalizeGoldenNumber();
         ArrayList<String> firstnum = new ArrayList<>(this.first.getNum());
@@ -344,28 +345,23 @@ public class GoldenRatioOperation {
      //TODO Dont work
      public ArrayList<String> getDivision()
      {
-           normalizeGoldenNumber();
-         ArrayList<String> first = new ArrayList<>(this.first.getNum());
-         ArrayList<String> second = new ArrayList<>(this.second.getNum());
-         
-         int mantissa = first.indexOf(".");
-         first.remove(".");
-         second.remove(".");
-   
-         StringBuilder str1 = new StringBuilder(first.toString());
-         int binaryfirst = Integer.parseInt(str1.toString(),2);
-         StringBuilder str2 = new StringBuilder(second.toString());
-         int binarysecond = Integer.parseInt(str2.toString(),2);
-         
-         int res = binaryfirst*binarysecond;
-         
-         StringBuilder strres = new StringBuilder(Integer.toBinaryString(res));
-         
-         
-         ArrayList<String> reslist = new ArrayList<>(getListFromStringBuilder(strres)); 
-         mantissa*=2;
-         reslist.add(reslist.size()-mantissa-1, ".");
-         return reslist;
+         normalizeGoldenNumber();
+            ArrayList<String> fir = new ArrayList<>(this.first.getNum());
+            ArrayList<String> sec = new ArrayList<>(this.second.getNum());
+           
+           int i=0;
+           while(getComparison(fir, sec)){
+               i++;
+               GoldenRatioOperation gl = new GoldenRatioOperation(fir, sec);
+               //System.out.println();
+               fir = new ArrayList<>(gl.getSubstruction());
+               gl = new GoldenRatioOperation(fir, sec);
+               gl.normalizeGoldenNumber();
+               fir = new ArrayList<>(gl.getFirst().getNum());
+               sec = new ArrayList<>(gl.getSecond().getNum());
+           }
+           
+           return new GoldenRatio().getGoldenNumFromDecimal(i);
      }
      
      private static ArrayList<String> getListFromStringBuilder(StringBuilder str)
