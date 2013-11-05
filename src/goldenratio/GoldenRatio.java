@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package goldenratio;
 
 import java.math.BigDecimal;
@@ -41,7 +37,13 @@ public class GoldenRatio {
  //TODO   
     public ArrayList<String> getGoldenNumFromDecimal(double dec)
     {
-       
+       //check sign
+        boolean sign =true;
+        if (dec<0){
+            sign =false;
+            dec=-dec;
+        }
+        
         ArrayList<String> reslist = new ArrayList<>();
         double rec2 = Math.log(dec)/Math.log(PHI);
         int rec = (int)rec2; 
@@ -84,8 +86,11 @@ public class GoldenRatio {
         } else {
             System.out.println("Error in getGoldenNumberFromDecimal");
         }
-         getMinimalForm(reslist);
+//         getMinimalForm(reslist);
          getoutZero(reslist);
+//         if (!sign){
+//             reslist.add(0,"-");
+//         }
         return reslist;
     }
     
@@ -296,21 +301,17 @@ public class GoldenRatio {
     //get out zero from begining and ending
     public ArrayList<String> getoutZero(ArrayList<String> list){
         
-//        for(int i=0;i<list.size();i++){
-//            if ("0".equals(list.get(i)))
-//                list.remove(i);
-//            else break;
-//        }
+        if(".".equals(list.get(list.size()-1))){
+            list.add("0");
+            list.add("0");
+        }
+        
         while("0".equals(list.get(0)) && !(".".equals(list.get(1))))
             list.remove(0);
         
-        while("0".equals(list.get(list.size()-1)) && !(".".equals(list.get(list.size()-3))))
+        while("0".equals(list.get(list.size()-1)) && !(".".equals(list.get(list.size()-3))) && !".".equals(list.get(list.size()-3)))
             list.remove(list.size()-1);
-//        for(int i=list.size()-1;i>0;i--){
-//            if ("0".equals(list.get(i)))
-//                list.remove(i);
-//            else break;
-//        }
+
         return list;
     }
 }
