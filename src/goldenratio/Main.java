@@ -32,14 +32,26 @@ public class Main {
           StringBuilder fp = new StringBuilder("1000.1001");
           StringBuilder sp = new StringBuilder("10.01");
           GoldenRatioOperation Test = new GoldenRatioOperation( getArrayList(fpoint),getArrayList(spoint));
+         
           GoldenRatio testgr = new GoldenRatio();
-          System.out.println(Test.getSubstruction());
+         // System.out.println(Test.getSubstruction());
           double d =10d;
+          
           //System.out.println(testgr.getGoldenNumFromDecimal(1000000));
         
-         
-    
-       
+          int a =4;int b=5;
+          System.out.println("a ="+a+" b="+b);
+          System.out.println("a="+new GoldenRatio().getGoldenNumFromDecimal(a));
+          System.out.println("b="+new GoldenRatio().getGoldenNumFromDecimal(b));
+          System.out.println("Addition by gold: "+getAdittion(a, b));
+          System.out.println("Addition by dec: "+ new GoldenRatio().getGoldenNumFromDecimal(9));
+          System.out.println("Substraction by gold: "+getSubstruction(a, b));
+          System.out.println("Substraction by dec : "+new GoldenRatio().getGoldenNumFromDecimal(-1) );
+          StringBuilder spq = new StringBuilder("10100.0101");
+          System.out.println("From gold to decimal: "+new GoldenRatio().getDecimalNumFromGolden(getArrayList(spq)));
+          //1101.1101=10010.0101
+          //1101.1101 = 10001.1101=10010.0101
+          //1.618033989
      }
      
         private static ArrayList<String> getArrayList(String[] str)
@@ -53,6 +65,18 @@ public class Main {
                 list.add(String.valueOf(str.charAt(i)));
             }
             return list;
+        }
+        
+//        private static ArrayList<String> getAdittion(StringBuilder f, StringBuilder s){
+//            return 
+//        }
+        
+        private static ArrayList<String> getAdittion(int f,int s){
+            return new GoldenRatioOperation(new GoldenRatio().getGoldenNumFromDecimal(f),new GoldenRatio().getGoldenNumFromDecimal(s)).getAddition();
+        }
+        
+        private static ArrayList<String> getSubstruction(int f,int s){
+            return new GoldenRatioOperation(new GoldenRatio().getGoldenNumFromDecimal(f),new GoldenRatio().getGoldenNumFromDecimal(s)).getSubstruction();
         }
     
 }

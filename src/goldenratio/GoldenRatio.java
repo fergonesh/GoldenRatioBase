@@ -21,6 +21,10 @@ public class GoldenRatio {
     
     public GoldenRatio(ArrayList a)
     {
+//         if(new FibonachiCheck().checkGoldenNumber(a)) {
+//        } else {
+//            System.out.println("Error in GoldenRation Constructor");
+//        }
         this.num = new ArrayList<>(a);
     }
     
@@ -37,6 +41,7 @@ public class GoldenRatio {
  //TODO   
     public ArrayList<String> getGoldenNumFromDecimal(double dec)
     {
+       
         ArrayList<String> reslist = new ArrayList<>();
         double rec2 = Math.log(dec)/Math.log(PHI);
         int rec = (int)rec2; 
@@ -44,7 +49,7 @@ public class GoldenRatio {
         //while(dec>=1)
         for(int i =rec;i>=0;i--)
         {
-//            double check = Math.pow(PHI, i);
+            double check = Math.pow(PHI, i);
             if(dec>=Math.pow(PHI, i))
             {
                 reslist.add("1");
@@ -62,8 +67,7 @@ public class GoldenRatio {
         while(dec>ge)
         {
             
-            double check = round(1./Math.pow(PHI,rec),2*rec); 
-            
+            double check = round(1./Math.pow(PHI,rec),rec); 
             if(dec>=check)
             {
                reslist.add("1");
@@ -76,6 +80,12 @@ public class GoldenRatio {
             rec++;
             ge*=0.01;
         }
+         if(new FibonachiCheck().checkGoldenNumber(reslist)) {
+        } else {
+            System.out.println("Error in getGoldenNumberFromDecimal");
+        }
+         getMinimalForm(reslist);
+         getoutZero(reslist);
         return reslist;
     }
     
