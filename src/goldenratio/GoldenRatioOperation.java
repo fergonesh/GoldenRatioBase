@@ -183,6 +183,13 @@ public class GoldenRatioOperation {
                  pointPosition+=big.size()-moreSize;
                  moreSize=big.size();
              }
+             if(small.size()!=big.size()){
+                GoldenRatioOperation gl = new GoldenRatioOperation(big,small);
+                gl.normalizeGoldenNumber();
+                big = new ArrayList<>(gl.getFirst().getNum());
+                small = new ArrayList<>(gl.getSecond().getNum());
+                 
+             }
         }
         big = new ArrayList<>(new GoldenRatio().getMinimalForm(big));
          if (big.size()!=moreSize)
@@ -192,6 +199,7 @@ public class GoldenRatioOperation {
              }
         if (pointPosition>0)
             big.add(pointPosition, ".");
+        new GoldenRatio().getoutZero(big);
         return big; 
     }
     
@@ -247,10 +255,10 @@ public class GoldenRatioOperation {
         if(!sign)
             big.add(0,"-");
         
-        if(new FibonachiCheck().checkGoldenNumber(big)) {
-        } else {
-            System.out.println("Error in Substruction");
-        }
+//        if(new FibonachiCheck().checkGoldenNumber(big)) {
+//        } else {
+//            System.out.println("Error in Substruction");
+//        }
        //return (new GoldenRatio().getMinimalForm(big)) ;
      
        
@@ -334,7 +342,7 @@ public class GoldenRatioOperation {
         
         if(new FibonachiCheck().checkGoldenNumber(res)) {
         } else {
-            System.out.println("Error in Substruction");
+            System.out.println("Error in Multiplication");
         }
          
          return res;
@@ -342,7 +350,7 @@ public class GoldenRatioOperation {
 //         return result;                                
      }
   
-     //TODO Dont work
+     
      public  ArrayList<ArrayList<String>> getDivision()
      {
          normalizeGoldenNumber();
