@@ -10,57 +10,13 @@ import java.util.Arrays;
 public class Main {
     
      public static void main(String[] args) {    
-//          String[] fpoint = {"1","0","1","0","0",".","0","1","0","1"};//10
-//         String[] spoint = {"1","0","0","1","0","0",".","0","0","1","0","0","1"}; //14
-//         String[] zp = {"1",".","1","1"};
-          StringBuilder fpoint = new StringBuilder("0.1010");
-          StringBuilder spoint = new StringBuilder("0.1001");
-          
-          StringBuilder fp = new StringBuilder("1.00");
-          StringBuilder sp = new StringBuilder("10100.0101");
-          GoldenRatioOperation Test = new GoldenRatioOperation( getArrayList(fp),getArrayList(sp));
-         // System.out.println(Test.getSubstruction());
-        //  System.out.println(Test.getDivision());
-          GoldenRatio testgr = new GoldenRatio();
-          //System.out.println(testgr.getGoldenNumFromDecimal(22));
-         // System.out.println(Test.getSubstruction());
-          double d =10d;
-          String fps = "10.01";
-          String sps = "10100.0101";
-          String qps = "1000.1001";
-          //System.out.println(testgr.getGoldenNumFromDecimal(1000000));
-          //printDivision(fps, sps);
-          int a =4;int b=5;
-          printAdittion(30, 15);
-          
-          new GoldenRatio().getGoldenNumFromDecimal(40);
-          StringBuilder str = new StringBuilder("10101000.10000001");
-          System.out.println(new GoldenRatio().getDecimalNumFromGolden(getArrayList(str)));
-          
-         // System.out.println();
-//          printSubstruction(sps, fps);
-          printSubstruction(100, 7);
- //         printMultiplication(fps, qps);
- //         printMultiplication(5, 2);
- //         printDivision(6, 2);
-          //printMultiplication(2, 3);
-//            printDivision(9,3);
-//          System.out.println("a ="+a+" b="+b);
-//          System.out.println("a="+new GoldenRatio().getGoldenNumFromDecimal(a));
-//          System.out.println("b="+new GoldenRatio().getGoldenNumFromDecimal(b));
-//          System.out.println("Addition by gold: "+getAdittion(a, b));
-//          System.out.println("Addition by dec: "+ new GoldenRatio().getGoldenNumFromDecimal(a+b));
-//          System.out.println("Substraction by gold: "+getSubstruction(a, b));
-//          System.out.println("Substraction by dec : "+new GoldenRatio().getGoldenNumFromDecimal(a-b) );
-//          System.out.println("Multiplication by gold: "+getMultiplication(a, b) );
-//          System.out.println("Multiplication by dec : "+new GoldenRatio().getGoldenNumFromDecimal(20));
-//          //System.out.println("get dec of multires : "+new GoldenRatio().getDecimalNumFromGolden(null));
-//          StringBuilder spq = new StringBuilder("1000010.010001");
-//          System.out.println("From gold to decimal: "+new GoldenRatio().getDecimalNumFromGolden(getArrayList(spq)));
-          //1101.1101=10010.0101
-          //1101.1101 = 10001.1101=10010.0101
-          //1.618033989
+        printAdittion(22, 2);
+        printSubstruction(100, 7);
+        printMultiplication(5, 2);
+        printDivision(6, 2);
      }
+ 
+     
      
         private static ArrayList<String> getArrayList(String[] str)
     {
