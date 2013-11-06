@@ -1,7 +1,5 @@
 package goldenratio;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.ArrayList;
 
 /**
@@ -11,16 +9,10 @@ import java.util.ArrayList;
 public class GoldenRatio {
     
     private ArrayList<String> num;
-    private final static BigDecimal PH =new BigDecimal ((Math.sqrt(5)+1)/2);
     private final static double PHI = (Math.sqrt(5)+1)/2;
-//    int pointPos =0;
     
     public GoldenRatio(ArrayList a)
     {
-//         if(new FibonachiCheck().checkGoldenNumber(a)) {
-//        } else {
-//            System.out.println("Error in GoldenRation Constructor");
-//        }
         this.num = new ArrayList<>(a);
     }
     
@@ -46,7 +38,6 @@ public class GoldenRatio {
         double rec2 = Math.log(dec)/Math.log(PHI);
         int rec = (int)rec2; 
         
-        //while(dec>=1)
         for(int i =rec;i>=0;i--)
         {
             double check = Math.pow(PHI, i);
@@ -59,7 +50,7 @@ public class GoldenRatio {
             {
                 reslist.add("0");
             }
-          //  rec--;
+
         }
         reslist.add(".");
         rec=1;
@@ -238,47 +229,6 @@ public class GoldenRatio {
         }
         return res;
     }
-    
-   /* public ArrayList<String> normalizeGoldenNumber(ArrayList lt)
-    {
-        if(!this.num.contains(".") && !lt.contains("."))
-        {
-//            //TODO normalize
-//            if(a.size()>b.size())
-//                a = new ArrayList<>(addZeroInPosition(a,a.size()-b.size() , true));
-//            else if(a.size()<b.size())
-//                b = new ArrayList<>(addZeroInPosition(b,b.size()-a.size() , true));
-//            this.firstNum = new ArrayList<>(a);            
-//            this.secondNum = new ArrayList<>(b);
-//            this.pointPosition = 0;
-//            return;
-        }
-        else
-        {    
-            ArrayList<String> lefta = new ArrayList<>(this.num.subList(0, this.num.indexOf(".")));
-            ArrayList<String> leftb = new ArrayList<>(lt.subList(0, lt.indexOf(".")));
-            if (lefta.size()>leftb.size())
-            {
-                leftb = new ArrayList<>(addZeroInPosition(leftb,lefta.size()-leftb.size() , true));
-            }
-            else if(lefta.size()<leftb.size())
-            {
-                lefta = new ArrayList<>(addZeroInPosition(lefta,leftb.size()-lefta.size() , true));
-            }
-            
-            ArrayList<String> righta = new ArrayList<>(a.subList(a.indexOf(".")+1,a.size()));
-            ArrayList<String> rightb = new ArrayList<>(b.subList(b.indexOf(".")+1,b.size()));
-            if (righta.size()>rightb.size())
-            {
-                rightb = new ArrayList<>(addZeroInPosition(leftb,righta.size()-rightb.size() , false));
-            }
-            else if(righta.size()<rightb.size())
-            {
-                righta = new ArrayList<>(addZeroInPosition(righta,leftb.size()-righta.size() , false));
-            }
-            
-        }   
-    }*/
     
        //lead to needed size
     private ArrayList addZeroInPosition(ArrayList list,int zeroQuantity,boolean begin)

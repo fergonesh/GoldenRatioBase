@@ -49,7 +49,6 @@ public class GoldenRatioOperation {
         ArrayList<String> b = new ArrayList<>(this.second.getNum());
           if(!a.contains(".") && !b.contains("."))
         {
-            //TODO normalize
             if(a.size()>b.size())
                 a = new ArrayList<>(addZeroInPosition(a,a.size()-b.size() , true));
             else if(a.size()<b.size())
@@ -82,7 +81,6 @@ public class GoldenRatioOperation {
             {
                 righta = new ArrayList<>(addZeroInPosition(righta,rightb.size()-righta.size() , false));
             }
-            
             
             ArrayList<String> firstNum = new ArrayList<>(lefta);
             firstNum.add(".");
@@ -160,11 +158,6 @@ public class GoldenRatioOperation {
         
         int lessSize = small.size();
         int moreSize = big.size();
-//      add zero to beggining of less number
-//        for(int i=0;i<moreSize-lessSize;i++)
-//        {
-//            small.add(0, "0");
-//        }
 
         while(small.contains("1"))
         {
@@ -211,9 +204,6 @@ public class GoldenRatioOperation {
         int pointPosition = firstnum.indexOf(".");
         firstnum.remove(".");
         secondnum.remove(".");
-//      big/small is  number with more/less digit,respectively. 
-//        ArrayList<Integer> big = new ArrayList<>(this.firstNum.size()>=this.secondNum.size()?this.firstNum:this.secondNum);
-//        ArrayList<Integer> small = new ArrayList<>(this.firstNum.size()>=this.secondNum.size()?this.secondNum:this.firstNum);
         boolean sign = true;
         if(!getComparison(firstnum, secondnum))
             sign = false;
@@ -222,13 +212,6 @@ public class GoldenRatioOperation {
         ArrayList<String> small = new ArrayList<>(getComparison(firstnum,secondnum)?secondnum:firstnum);
         int lessSize = small.size();
         int moreSize = big.size();
-//        System.out.println("small :"+small);
-//        System.out.println("big   :"+big);
-//        if( "0".equals(big.get(moreSize-1)) && "1".equals(big.get(moreSize-2)) && "1".equals(small.get(lessSize-1)) ){
-//           big.add("0");
-//           small.add("0");
-//        }
-
         
         while(small.contains("1"))
         {
@@ -243,7 +226,6 @@ public class GoldenRatioOperation {
             //test
             GoldenRatio GR = new GoldenRatio();
             
-            //
              small = new ArrayList<>(GR.getMaximumFrom(small));
              big = new ArrayList<>(GR.getMaximumFrom(big));
 
@@ -255,42 +237,16 @@ public class GoldenRatioOperation {
         if(!sign)
             big.add(0,"-");
         
-//        if(new FibonachiCheck().checkGoldenNumber(big)) {
-//        } else {
-//            System.out.println("Error in Substruction");
-//        }
-       //return (new GoldenRatio().getMinimalForm(big)) ;
+        if(new FibonachiCheck().checkGoldenNumber(big)) {
+        } else {
+            System.out.println("Error in Substruction");
+        }
+
      
        
         return (new GoldenRatio().getoutZero(big));
     }
      
-/*     static ArrayList<String> multiplyadd(StringBuilder s1, StringBuilder s2) {
-   // String result = "";
-         ArrayList<String> result = new ArrayList<>();
-     GoldenRatioOperation GL = new GoldenRatioOperation();
-     GoldenRatio reg = new GoldenRatio();
-     GoldenRatio seq = new GoldenRatio();
-    StringBuilder zeroSuffix = new StringBuilder();
-    for (int i = s2.length() - 1; i >= 0; i--) {
-        if (s2.charAt(i) == '1') {
-            StringBuilder secondAddition = s1.append("  ");
-            StringBuilder secAddStrBuilder = new StringBuilder(secondAddition);
-            ArrayList<String> secAddList = new ArrayList<>(getListFromStringBuilder(secAddStrBuilder));
-            //result = new ArrayList<>(new GoldenRatioOperation(result,secAddList).getAddition());
-            GL.setFirst(reg); GL.setSecond(seq);
-            GL.getFirst().setNum(result);
-            GL.getSecond().setNum(secAddList);
-           // GL = new GoldenRatioOperation(result,secAddList);
-            
-            result = GL.getAddition();
-           // result = add(result, s1 + zeroSuffix);
-        }
-        zeroSuffix.append("0");
-    }
-    return result;
-}
-  */ 
      public ArrayList<String> multiplyadd(ArrayList<String> fir, ArrayList<String> sec){
          ArrayList<String> res = new ArrayList<>();
          res.add("0");res.add("0");res.add("0");
